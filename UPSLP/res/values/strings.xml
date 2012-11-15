@@ -4,5 +4,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_upslp">Upslp</string>
+    <string name="getting_info">Obteniendo informacion </string>
 
 </resources>
