@@ -29,8 +29,9 @@ public class Upslp extends Activity {
 
 		p = (ProgressBar) findViewById(R.id.progressBar1);
 		p.setProgress(0);
-		
+		//Checa si el device esta conectado o no
 		if(isOnline()){
+			//Ejecuta la tarea asincrona
 			new ObtenInfoUsuario().execute("070521");
 		}else {
 			Toast.makeText(getApplicationContext(), "No tienes conexion a Interné :(", Toast.LENGTH_SHORT).show();
@@ -43,15 +44,26 @@ public class Upslp extends Activity {
 		return true;
 	}
 
-
+	/**
+	 * Hace la peticion asincrona
+	 * 
+	 * @author kentverger
+	 *
+	 */
 	public class ObtenInfoUsuario extends AsyncTask<String, Integer, String[]>{
-
+		/**
+		 * Acutaliza la UI
+		 * 
+		 */
 		@Override
 		protected void onProgressUpdate(Integer... values) {
 			p.setProgress(values[0]);
 			super.onProgressUpdate(values);
 		}
-
+		/**
+		 * Ejecuta esto cuando termina la peticion
+		 * 
+		 */
 		@Override
 		protected void onPostExecute(String[] result) {
 			//Nombre de los archivos almacenados internamente
@@ -89,13 +101,10 @@ public class Upslp extends Activity {
 
 			super.onPostExecute(result);
 		}
-
-		@Override
-		protected void onPreExecute() {
-			// TODO Auto-generated method stub
-			super.onPreExecute();
-		}
-
+		/**
+		 * Esto hace la peticion al servidor
+		 * 
+		 */
 		@Override
 		protected String[] doInBackground(String... arg0) {
 
@@ -141,6 +150,11 @@ public class Upslp extends Activity {
 		}
 
 	}
+	/**
+	 * Verifica si esta conectado o no
+	 * 
+	 * @return
+	 */
 	public boolean isOnline() {
 		ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 
