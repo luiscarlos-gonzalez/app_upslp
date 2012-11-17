@@ -16,7 +16,7 @@ public class Login extends Activity {
         Button acceder = (Button) findViewById(R.id.acceder);
         acceder.setOnClickListener(new View.OnClickListener() {
            public void onClick(View arg0) {
-           Intent i = new Intent(Login.this,Acceso.class);
+           Intent i = new Intent(Login.this,MainMenu.class);
            startActivity(i);
            }
         });
