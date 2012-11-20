@@ -19,5 +19,11 @@
     <string name="sem7">Semestre 7</string>
     <string name="sem8">Semestre 8</string>
     <string name="sem9">Semestre 9</string>
+    <string name="Lunes">Lunes</string>
+    <string name="Martes">Martes</string>
+    <string name="Miercoles">Miercoles</string>
+    <string name="Jueves">Jueves</string>
+    <string name="Viernes">Viernes</string>
+
 
 </resources>
