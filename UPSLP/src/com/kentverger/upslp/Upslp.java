@@ -1,8 +1,11 @@
 package com.kentverger.upslp;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.jsoup.Jsoup;
 
@@ -26,17 +29,64 @@ public class Upslp extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_upslp);
-
+		
 		p = (ProgressBar) findViewById(R.id.progressBar1);
 		p.setProgress(0);
-		//Checa si el device esta conectado o no
-		if(isOnline()){
-			//Ejecuta la tarea asincrona
-			new ObtenInfoUsuario().execute("070521");
-		}else {
-			Toast.makeText(getApplicationContext(), "No tienes conexion a Interné :(", Toast.LENGTH_SHORT).show();
+
+		FileInputStream basicInfoStream;
+		FileInputStream faltasStream;
+		FileInputStream horarioStream;
+		FileInputStream calificacionesStream;
+		try {
+			
+			basicInfoStream = openFileInput("basic_info");
+			InputStreamReader inputStreamReaderBasic = new InputStreamReader(basicInfoStream);
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReaderBasic);
+			StringBuilder basic_info = new StringBuilder();
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				basic_info.append(line);
+			}
+			
+			faltasStream = openFileInput("faltas");
+			InputStreamReader inputStreamReaderFaltas = new InputStreamReader(faltasStream);
+			BufferedReader bufferedReaderFaltas = new BufferedReader(inputStreamReaderFaltas);
+			StringBuilder faltas = new StringBuilder();
+			while ((line = bufferedReaderFaltas.readLine()) != null) {
+				faltas.append(line);
+			}
+			
+			horarioStream = openFileInput("horario");
+			InputStreamReader inputStreamReaderHorario = new InputStreamReader(horarioStream);
+			BufferedReader bufferedReaderHorario = new BufferedReader(inputStreamReaderHorario );
+			StringBuilder horario = new StringBuilder();
+			while ((line = bufferedReaderHorario.readLine()) != null) {
+				horario.append(line);
+			}
+			calificacionesStream = openFileInput("calificaciones");
+			InputStreamReader inputStreamReaderCalificaciones = new InputStreamReader(calificacionesStream);
+			BufferedReader bufferedReaderCalificaciones = new BufferedReader(inputStreamReaderCalificaciones);
+			StringBuilder calificaciones = new StringBuilder();
+			while ((line = bufferedReaderCalificaciones.readLine()) != null) {
+				calificaciones.append(line);
+			}
+			
+		} catch (FileNotFoundException e) {
+			//Checa si el device esta conectado o no
+			if(isOnline()){
+				//Ejecuta la tarea asincrona
+				new ObtenInfoUsuario().execute("070521");
+			}else {
+				Toast.makeText(getApplicationContext(), "No tienes conexion a Interné :(", Toast.LENGTH_SHORT).show();
+			}
+			
+		} catch (IOException e) {
+			Log.d("Weird Shit Happening", e.getMessage());
 		}
+		
 	}
+
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,6 +114,7 @@ public class Upslp extends Activity {
 		 * Ejecuta esto cuando termina la peticion
 		 * 
 		 */
+
 		@Override
 		protected void onPostExecute(String[] result) {
 			//Nombre de los archivos almacenados internamente
@@ -71,6 +122,7 @@ public class Upslp extends Activity {
 			String FALTAS_FILENAME = "faltas";
 			String HORARIO_FILENAME = "horario";
 			String CALIFICACIONES_FILENAME = "calificaciones";
+
 
 
 			try {
@@ -110,7 +162,7 @@ public class Upslp extends Activity {
 
 			String[] result = new String[4];
 
-			Log.d("Data", arg0[0]);
+			//Log.d("Data", arg0[0]);
 
 			try {
 				//Obtiene la informacion basica del usuario
@@ -134,13 +186,13 @@ public class Upslp extends Activity {
 						.text();
 				publishProgress(4);
 				result[0] = basic_info_string;
-				Log.d("Response", basic_info_string);
+				//Log.d("Response", basic_info_string);
 				result[1] = faltas_info_string;
-				Log.d("Response", faltas_info_string);
+				//Log.d("Response", faltas_info_string);
 				result[2] = horario_info_string;
-				Log.d("Response", horario_info_string);
+				//Log.d("Response", horario_info_string);
 				result[3] = calificaciones_info_string;
-				Log.d("Response", calificaciones_info_string);
+				//Log.d("Response", calificaciones_info_string);
 
 
 			} catch (IOException e) {

@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/logo_desc"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo_bco_poli" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/carrera_btn"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="200dp"
         android:text="@string/carrera" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/horario_btn"
         android:layout_width="250dp"
+        android:layout_below="@+id/carrera_btn"
         android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="@string/horario" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/calificaciones_btn"
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/horario_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="@string/calificaciones" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/faltas_btn"
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center"
+        android:layout_below="@+id/calificaciones_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="@string/faltas" />
 
-</LinearLayout>
+
+</RelativeLayout>

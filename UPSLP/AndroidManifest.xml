@@ -16,22 +16,27 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".Upslp"
-            android:label="@string/title_activity_upslp" />
+            android:label="@string/title_activity_upslp" >
+        </activity>
         <activity
             android:name=".Acceso"
             android:label="@string/title_activity_upslp" />
         <activity
             android:name=".Login"
             android:label="@string/title_activity_upslp" >
+        </activity>
+        <activity
+            android:name=".MainMenu"
+            android:label="@string/title_activity_upslp" />
+        <activity
+            android:name=".ReticulaActivity"
+            android:label="@string/title_activity_upslp" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainMenu"
-            android:label="@string/title_activity_upslp" />
+            </activity>
     </application>
 
 </manifest>
