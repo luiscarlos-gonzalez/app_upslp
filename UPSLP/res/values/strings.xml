@@ -24,6 +24,13 @@
     <string name="Miercoles">Miercoles</string>
     <string name="Jueves">Jueves</string>
     <string name="Viernes">Viernes</string>
+    <string name="Sabado">Sabado</string>
+    <string name="parcial1">Parcial 1</string>
+    <string name="parcial2">Parcial 2</string>
+    <string name="parcial3">Parcial 3</string>
+    <string name="finalcal">Final</string>
+    <string name="extra">Extra</string>
+    <string name="regu">Regu</string>
 
 
 </resources>
