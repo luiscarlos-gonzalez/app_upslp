@@ -46,6 +46,9 @@
         <activity
             android:name=".FaltasActivity"
             android:label="@string/title_activity_upslp" />
+        <activity
+            android:name=".CarreraActivity"
+            android:label="@string/title_activity_upslp" />
     </application>
 
 </manifest>

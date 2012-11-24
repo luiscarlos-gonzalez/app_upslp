@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        android:text="@string/carrera" />
+        android:text="@string/reticula" />
 
     <Button
         android:id="@+id/calificaciones_btn"

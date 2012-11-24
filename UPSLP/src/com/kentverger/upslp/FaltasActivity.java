@@ -6,18 +6,35 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 
 public class FaltasActivity extends SherlockActivity {
 	private StringBuilder faltas;
+	private JSONArray json;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
 		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.faltas_list);
+		
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setTitle("Tus faltas");
 		
 		FileInputStream faltasStream;
 		String line;
@@ -35,6 +52,68 @@ public class FaltasActivity extends SherlockActivity {
 			Log.d("Weird Shit Happening", e.getMessage());
 		}
 		Log.d("Cadena", faltas.toString());
+		try {
+			json = new JSONArray( faltas.toString() );
+		} catch (JSONException e) {
+			Log.d("Weird Shit Happening", e.getMessage());
+		}
+		
+		FaltasAdapter adapter = new FaltasAdapter();
+		ListView lista = (ListView)findViewById(R.id.faltasListView);
+		lista.setAdapter(adapter);
+		
+	}
+	
+	public class FaltasAdapter extends BaseAdapter{
+
+		@Override
+		public int getCount() {
+			return json.length();
+		}
+
+		@Override
+		public Object getItem(int arg0) {
+			Object element = null;
+			try {
+				element = json.get(arg0);
+			} catch (JSONException e) {
+				Log.d("Weird Shit Happening", e.getMessage());
+			}
+			return element;
+		}
+
+		@Override
+		public long getItemId(int arg0) {
+			long id = Long.parseLong(arg0+"");
+			return id;
+		}
+
+		@Override
+		public View getView(int pos, View v, ViewGroup parent) {
+
+			if(v == null){
+				LayoutInflater layoutInflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+				v = layoutInflater.inflate(R.layout.faltas_list_item, null);
+			}
+			
+			
+			TextView nombreMateria = (TextView)v.findViewById(R.id.nombre_materia_faltas);
+			TextView faltasParcial1 = (TextView)v.findViewById(R.id.faltas_1);
+			TextView faltasParcial2 = (TextView)v.findViewById(R.id.faltas_2);
+			TextView faltasParcial3 = (TextView)v.findViewById(R.id.faltas_3);
+			
+			try {
+				JSONObject jsonObject = json.getJSONObject(pos);
+				nombreMateria.setText(jsonObject.getString("NOMMATERIA"));
+				faltasParcial1.setText(jsonObject.getString("INAS1"));
+				faltasParcial2.setText(jsonObject.getString("INAS2"));
+				faltasParcial3.setText(jsonObject.getString("INAS3"));
+			} catch (JSONException e) {
+				Log.d("Weird Shit Happening", e.getMessage());
+			}
+			return v;
+		}
+		
 	}
 
 }

@@ -49,6 +49,7 @@ public class CalificacionesActivity extends SherlockFragmentActivity implements 
 		
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setTitle("Tus calificaciones");
 		
 		try {
 			calificaciones_array = new JSONArray(calificaciones.toString());

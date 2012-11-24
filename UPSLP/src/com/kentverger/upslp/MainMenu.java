@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -18,9 +19,13 @@ public class MainMenu extends SherlockActivity{
 		setContentView(R.layout.main_menu);
 		
 		Button b_horario = (Button) findViewById(R.id.horario_btn);
-		//Button b_carrera = (Button) findViewById(R.id.carrera_btn);
+		Button b_carrera = (Button) findViewById(R.id.carrera_btn);
 		Button b_calificacion = (Button) findViewById(R.id.calificaciones_btn);
 		Button b_faltas = (Button) findViewById(R.id.faltas_btn);
+		
+
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setTitle("UPSLP");
 		
 		b_calificacion.setOnClickListener(new OnClickListener(){
 
@@ -40,6 +45,17 @@ public class MainMenu extends SherlockActivity{
 			}
 			
 		});
+		
+		b_carrera.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				Intent horario_intent = new Intent(getApplicationContext(), CarreraActivity.class);
+				startActivity(horario_intent);
+			}
+			
+		});
+		
 		b_faltas.setOnClickListener(new OnClickListener(){
 
 			@Override

@@ -31,6 +31,9 @@
     <string name="finalcal">Final</string>
     <string name="extra">Extra</string>
     <string name="regu">Regu</string>
+    <string name="exfinal">Examen Final</string>
+    <string name="zero">0</string>
+    <string name="reticula">Retícula</string>
 
 
 </resources>

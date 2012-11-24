@@ -20,88 +20,128 @@
         <TextView
             android:id="@+id/Calificacion1Text"
             android:layout_width="wrap_content"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Large Text"
+            android:layout_margin="5dp"
+            android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/parcial2Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_below="@+id/parcial1Text"
+            android:layout_margin="5dp"
             android:text="@string/parcial2"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/Calificacion2Text"
             android:layout_width="wrap_content"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/Calificacion1Text"
-            android:text="Large Text"
+            android:layout_margin="5dp"
+            android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <SeekBar
+            android:id="@+id/seekBar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/Calificacion2Text" />
 
         <TextView
             android:id="@+id/parcial3Text"
             android:layout_width="wrap_content"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/parcial2Text"
+            android:layout_below="@+id/seekBar2"
+            android:layout_margin="5dp"
             android:text="@string/parcial3"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/Calificacion3Text"
             android:layout_width="wrap_content"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/Calificacion2Text"
-            android:text="Large Text"
+            android:layout_below="@+id/seekBar2"
+            android:layout_margin="5dp"
+            android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <SeekBar
+            android:id="@+id/seekBar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/Calificacion3Text" />
 
         <TextView
             android:id="@+id/finalText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBar3"
             android:layout_margin="5dp"
-            android:layout_below="@+id/parcial3Text"
-            android:text="@string/finalcal"
+            android:text="@string/exfinal"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/CalificacionFinalText"
             android:layout_width="wrap_content"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/Calificacion3Text"
-            android:text="Large Text"
+            android:layout_below="@+id/seekBar3"
+            android:layout_margin="5dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <SeekBar
+            android:id="@+id/seekBar4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/CalificacionFinalText" />
+        
+        
+        <TextView
+            android:id="@+id/finalFinalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBar4"
+            android:layout_margin="5dp"
+            android:text="@string/finalcal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/CalificacionFinalFinalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/seekBar4"
+            android:layout_margin="5dp"
+            android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/extraText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/finalFinalText"
             android:layout_margin="5dp"
-            android:layout_below="@+id/finalText"
             android:text="@string/extra"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/CalificacionExtraText"
             android:layout_width="wrap_content"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/CalificacionFinalText"
-            android:text="Large Text"
+            android:layout_below="@+id/CalificacionFinalFinalText"
+            android:layout_margin="5dp"
+            android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
     </RelativeLayout>
 
 </LinearLayout>

@@ -34,6 +34,7 @@ public class Upslp extends Activity {
 		p.setProgress(0);
 
 		FileInputStream basicInfoStream;
+		FileInputStream carreraStream;
 		FileInputStream faltasStream;
 		FileInputStream horarioStream;
 		FileInputStream calificacionesStream;
@@ -69,6 +70,14 @@ public class Upslp extends Activity {
 			StringBuilder calificaciones = new StringBuilder();
 			while ((line = bufferedReaderCalificaciones.readLine()) != null) {
 				calificaciones.append(line);
+			}
+			
+			carreraStream = openFileInput("carrera");
+			InputStreamReader inputStreamReaderCarrera = new InputStreamReader(carreraStream);
+			BufferedReader bufferedReaderCarrera = new BufferedReader(inputStreamReaderCarrera);
+			StringBuilder carrera = new StringBuilder();
+			while ((line = bufferedReaderCarrera.readLine()) != null) {
+				carrera.append(line);
 			}
 			
 		} catch (FileNotFoundException e) {
@@ -122,6 +131,7 @@ public class Upslp extends Activity {
 			String FALTAS_FILENAME = "faltas";
 			String HORARIO_FILENAME = "horario";
 			String CALIFICACIONES_FILENAME = "calificaciones";
+			String CARRERA_FILENAME = "carrera";
 
 
 
@@ -131,6 +141,7 @@ public class Upslp extends Activity {
 				FileOutputStream fos_f = openFileOutput(FALTAS_FILENAME, Context.MODE_PRIVATE);
 				FileOutputStream fos_h = openFileOutput(HORARIO_FILENAME, Context.MODE_PRIVATE);
 				FileOutputStream fos_c = openFileOutput(CALIFICACIONES_FILENAME, Context.MODE_PRIVATE);
+				FileOutputStream fos_ca = openFileOutput(CARRERA_FILENAME, Context.MODE_PRIVATE);
 
 				//Guarda en los archivos la informacion
 				fos_b.write(result[0].getBytes());
@@ -143,6 +154,9 @@ public class Upslp extends Activity {
 				fos_h.close();
 
 				fos_c.write(result[3].getBytes());
+				fos_c.close();
+				
+				fos_ca.write(result[4].getBytes());
 				fos_c.close();
 
 			} catch (FileNotFoundException e) {
@@ -160,7 +174,7 @@ public class Upslp extends Activity {
 		@Override
 		protected String[] doInBackground(String... arg0) {
 
-			String[] result = new String[4];
+			String[] result = new String[5];
 
 			//Log.d("Data", arg0[0]);
 
@@ -185,14 +199,22 @@ public class Upslp extends Activity {
 						.get()
 						.text();
 				publishProgress(4);
+				//Obtiene la informacion carrera
+				String carrera_info_string = Jsoup.connect("http://192.168.31.222/upslp/index.php/upslp/plan_estudio/ITI")
+						.get()
+						.text();
+				publishProgress(5);
+				
 				result[0] = basic_info_string;
-				//Log.d("Response", basic_info_string);
+				Log.d("Response basic", basic_info_string);
 				result[1] = faltas_info_string;
-				//Log.d("Response", faltas_info_string);
+				Log.d("Response faltas", faltas_info_string);
 				result[2] = horario_info_string;
-				//Log.d("Response", horario_info_string);
+				Log.d("Response horario", horario_info_string);
 				result[3] = calificaciones_info_string;
-				//Log.d("Response", calificaciones_info_string);
+				Log.d("Response calificaciones", calificaciones_info_string);
+				result[4] = carrera_info_string;
+				Log.d("Response carrera", carrera_info_string);
 
 
 			} catch (IOException e) {
