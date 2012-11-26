@@ -24,7 +24,7 @@ public class HorarioActivity extends SherlockFragmentActivity implements ActionB
 	@Override
 	protected void onCreate(Bundle arg0){
 		
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		setTheme(R.style.UPSLPTheme);
 		super.onCreate(arg0);
 		
 		ActionBar actionBar = getSupportActionBar();

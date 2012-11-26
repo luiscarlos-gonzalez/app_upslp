@@ -22,7 +22,7 @@ public class CarreraActivity extends SherlockFragmentActivity implements ActionB
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		setTheme(R.style.UPSLPTheme);
 		super.onCreate(savedInstanceState);
 		
 		ActionBar actionBar = getSupportActionBar();

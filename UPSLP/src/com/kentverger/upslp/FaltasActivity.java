@@ -28,7 +28,7 @@ public class FaltasActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		setTheme(R.style.UPSLPTheme);
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.faltas_list);

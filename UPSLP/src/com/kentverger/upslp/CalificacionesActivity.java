@@ -27,7 +27,7 @@ public class CalificacionesActivity extends SherlockFragmentActivity implements 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		setTheme(R.style.UPSLPTheme);
 		super.onCreate(savedInstanceState);
 		
 		FileInputStream calificacionesStream;

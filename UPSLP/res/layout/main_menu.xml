@@ -2,43 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/app_background"
     android:layout_height="match_parent" >
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/logo_desc"
-        android:src="@drawable/logo_bco_poli" />
 
     <Button
         android:id="@+id/horario_btn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="10dp"
-        android:text="@string/horario" />
+        android:layout_height="60dp"
+        android:layout_margin="0dp"
+        android:background="@drawable/button"
+        android:text="@string/horario"
+        android:textColor="#ffffff"
+        android:textSize="35sp" />
 
     <Button
         android:id="@+id/carrera_btn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="10dp"
-        android:text="@string/reticula" />
+        android:layout_height="60dp"
+        android:layout_margin="0dp"
+        android:textSize="35sp"
+        android:background="@drawable/button"
+        android:text="@string/reticula"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/calificaciones_btn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="10dp"
-        android:text="@string/calificaciones" />
+        android:layout_height="60dp"
+        android:layout_margin="0dp"
+        android:textSize="35sp"
+        android:background="@drawable/button"
+        android:text="@string/calificaciones"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/faltas_btn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="10dp"
-        android:text="@string/faltas" />
-
+        android:layout_height="60dp"
+        android:layout_margin="0dp"
+        android:textSize="35sp"
+        android:background="@drawable/button"
+        android:text="@string/faltas"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

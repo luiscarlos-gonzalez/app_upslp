@@ -9,24 +9,26 @@ import java.io.InputStreamReader;
 
 import org.jsoup.Jsoup;
 
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class Upslp extends Activity {
+public class Upslp extends SherlockActivity {
 
 	private ProgressBar p;
 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
+		setTheme(R.style.Sherlock___Theme_Dialog);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_upslp);
 		
@@ -93,14 +95,6 @@ public class Upslp extends Activity {
 			Log.d("Weird Shit Happening", e.getMessage());
 		}
 		
-	}
-
-	
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_upslp, menu);
-		return true;
 	}
 
 	/**

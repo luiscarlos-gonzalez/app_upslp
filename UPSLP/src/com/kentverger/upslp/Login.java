@@ -11,7 +11,7 @@ public class Login extends SherlockActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
+		setTheme(R.style.UPSLPTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         

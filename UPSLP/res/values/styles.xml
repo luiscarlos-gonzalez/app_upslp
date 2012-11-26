@@ -1,5 +1,13 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppTheme" parent="android:Theme.Light" />
+    <style name="UPSLPTheme" parent="@style/Theme.Sherlock.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.Sherlock.Light.ActionBar">
+        <item name="android:background">@drawable/actionbar_style</item>
+        <item name="android:backgroundStacked">@drawable/actionbar_style</item>
+        <item name="android:backgroundSplit">@drawable/actionbar_style</item>
+    </style>
 
 </resources>
