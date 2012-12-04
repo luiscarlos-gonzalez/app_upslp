@@ -34,6 +34,10 @@
     <string name="exfinal">Examen Final</string>
     <string name="zero">0</string>
     <string name="reticula">Retícula</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña:</string>
+    <string name="acceder">Acceder</string>
+    <string name="matricula">Matricula</string>
 
 
 </resources>

@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Large Text"
+        android:textSize="30dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
@@ -24,10 +25,11 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/parcial_1_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/parcial1"
+        		android:textSize="25dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
@@ -35,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
+        		android:textSize="25dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
@@ -45,10 +48,11 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/parcial_2_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/parcial2"
+        		android:textSize="25dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
@@ -56,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium Text"
+        		android:textSize="25dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
@@ -66,9 +71,10 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/parcial_3_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+        		android:textSize="25dp"
                 android:text="@string/parcial3"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -76,6 +82,7 @@
                 android:id="@+id/faltas_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+        		android:textSize="25dp"
                 android:text="Medium Text"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>

@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -112,19 +113,39 @@ public class CarreraFragment extends SherlockFragment {
 				LayoutInflater layoutInflater = (LayoutInflater) getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
 				v = layoutInflater.inflate(R.layout.carrera_list_item, null);
 			}
+			Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "BenchNine-Regular.ttf");
+			
 			TextView materia = (TextView) v.findViewById(R.id.Materia);
 			TextView seriacion = (TextView) v.findViewById(R.id.Seriacion);
+			
+			materia.setTypeface(font);
+			seriacion.setTypeface(font);
 			
 
 
 			try {
 				JSONObject semestre = data.getJSONObject(pos);
 				materia.setText(semestre.getString("MATERIA"));
-				String ser = semestre.getString("SERIACION");
-				if(!ser.equals("null")){
-					seriacion.setText(ser);
-				}else{
+				String calfinal = semestre.getString("CALFIN");
+				String calextra = semestre.getString("EXTRA");
+				String calregu = semestre.getString("REGU");
+				
+				if(!calregu.equals(" ")){
+					seriacion.setText(calregu);
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.verde));
+				}else if(!calextra.equals(" ")){
+					seriacion.setText(calextra);
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.verde));
+				}else if(!calfinal.equals(" ")){
+					seriacion.setText(calfinal);
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.verde));
+				}
+				if(calfinal.equals("-1")){
 					seriacion.setText("");
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.gris));
+				}
+				if(calfinal.equals(" ")){
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.amarillo));
 				}
 			} catch (JSONException e) {
 				Log.d("Weird Shit Happening", e.getMessage());

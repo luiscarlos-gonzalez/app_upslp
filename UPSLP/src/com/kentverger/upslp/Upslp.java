@@ -16,8 +16,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Upslp extends SherlockActivity {
@@ -28,14 +31,21 @@ public class Upslp extends SherlockActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
-		setTheme(R.style.Sherlock___Theme_Dialog);
+		setTheme(R.style.UPSLPTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_upslp);
 		
 		p = (ProgressBar) findViewById(R.id.progressBar1);
 		p.setProgress(0);
+		
+		//Bundle extras = getIntent().getExtras();
+		//String mat = extras.getString("matricula");
 
-		FileInputStream basicInfoStream;
+		Typeface font = Typeface.createFromAsset(getAssets(), "BenchNine-Regular.ttf");
+		TextView text = (TextView) findViewById(R.id.label_obtener);
+		text.setTypeface(font);
+
+		/*FileInputStream basicInfoStream;
 		FileInputStream carreraStream;
 		FileInputStream faltasStream;
 		FileInputStream horarioStream;
@@ -86,14 +96,16 @@ public class Upslp extends SherlockActivity {
 			//Checa si el device esta conectado o no
 			if(isOnline()){
 				//Ejecuta la tarea asincrona
-				new ObtenInfoUsuario().execute("070521");
+				new ObtenInfoUsuario().execute(mat);
 			}else {
 				Toast.makeText(getApplicationContext(), "No tienes conexion a Interné :(", Toast.LENGTH_SHORT).show();
 			}
 			
 		} catch (IOException e) {
 			Log.d("Weird Shit Happening", e.getMessage());
-		}
+		}*/
+
+		new ObtenInfoUsuario().execute("070521");
 		
 	}
 
@@ -157,8 +169,12 @@ public class Upslp extends SherlockActivity {
 				Log.d("Weird Shit Happening", e.getMessage());
 			} catch (IOException e) {
 				Log.d("Weird Shit Happening", e.getMessage());
+			} catch (NullPointerException e) {
+				Log.d("Weird Shit Happening", e.getMessage());
 			}
 
+     	   	Intent i = new Intent(Upslp.this, MainMenu.class);
+     	   	startActivity(i);
 			super.onPostExecute(result);
 		}
 		/**
@@ -175,11 +191,13 @@ public class Upslp extends SherlockActivity {
 			try {
 				//Obtiene la informacion basica del usuario
 				String basic_info_string = Jsoup.connect("http://192.168.31.222/upslp/index.php/upslp/index/" + arg0[0])
+						.timeout(5000)
 						.get()
 						.text();
 				publishProgress(1);
 				//Obtiene la informacion de las faltas
 				String faltas_info_string = Jsoup.connect("http://192.168.31.222/upslp/index.php/upslp/faltas/" + arg0[0])
+						.timeout(5000)
 						.get()
 						.text();
 				publishProgress(2);
@@ -190,11 +208,13 @@ public class Upslp extends SherlockActivity {
 				publishProgress(3);
 				//Obtiene la informacion claificaciones
 				String calificaciones_info_string = Jsoup.connect("http://192.168.31.222/upslp/index.php/upslp/calificaciones/" + arg0[0])
+						.timeout(5000)
 						.get()
 						.text();
 				publishProgress(4);
 				//Obtiene la informacion carrera
-				String carrera_info_string = Jsoup.connect("http://192.168.31.222/upslp/index.php/upslp/plan_estudio/ITI")
+				String carrera_info_string = Jsoup.connect("http://192.168.31.222/upslp/index.php/upslp/plan_estudio/ITI/" + arg0[0])
+						.timeout(30000)
 						.get()
 						.text();
 				publishProgress(5);
@@ -212,7 +232,7 @@ public class Upslp extends SherlockActivity {
 
 
 			} catch (IOException e) {
-				Log.d("Weird Shit Happening", e.getMessage());
+				Log.d("Weird Shit Happening", e.getMessage()+"");
 			}
 			return result;
 		}

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/app_background"
+    android:background="@drawable/app_background2"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -12,6 +12,7 @@
 
         <TextView
             android:id="@+id/parcial1Text"
+       		android:textSize="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -21,6 +22,7 @@
         <TextView
             android:id="@+id/Calificacion1Text"
             android:layout_width="wrap_content"
+       		android:textSize="25sp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_margin="5dp"
@@ -30,6 +32,7 @@
         <TextView
             android:id="@+id/parcial2Text"
             android:layout_width="wrap_content"
+       		android:textSize="25sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/parcial1Text"
             android:layout_margin="5dp"
@@ -40,6 +43,7 @@
             android:id="@+id/Calificacion2Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+       		android:textSize="25sp"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/Calificacion1Text"
             android:layout_margin="5dp"
@@ -56,6 +60,7 @@
         <TextView
             android:id="@+id/parcial3Text"
             android:layout_width="wrap_content"
+       		android:textSize="25sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/seekBar2"
             android:layout_margin="5dp"
@@ -66,6 +71,7 @@
             android:id="@+id/Calificacion3Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+       		android:textSize="25sp"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/seekBar2"
             android:layout_margin="5dp"
@@ -85,6 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/seekBar3"
             android:layout_margin="5dp"
+       		android:textSize="25sp"
             android:text="@string/exfinal"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -95,6 +102,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/seekBar3"
             android:layout_margin="5dp"
+       		android:textSize="25sp"
             android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
@@ -111,6 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/seekBar4"
+       		android:textSize="25sp"
             android:layout_margin="5dp"
             android:text="@string/finalcal"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -121,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/seekBar4"
+       		android:textSize="25sp"
             android:layout_margin="5dp"
             android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -131,6 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/finalFinalText"
             android:layout_margin="5dp"
+       		android:textSize="25sp"
             android:text="@string/extra"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -138,6 +149,7 @@
             android:id="@+id/CalificacionExtraText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+       		android:textSize="25sp"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/CalificacionFinalFinalText"
             android:layout_margin="5dp"

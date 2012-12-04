@@ -1,5 +1,6 @@
 package com.kentverger.upslp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,14 @@ public class CalificacionFragment extends SherlockFragment {
 	private TextView p1;
 	private TextView fin;
 	private TextView finfin;
+	private TextView extra;
+	
+	private TextView l3;
+	private TextView l2;
+	private TextView l1;
+	private TextView lfin;
+	private TextView lfinfin;
+	private TextView lextra;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,6 +36,29 @@ public class CalificacionFragment extends SherlockFragment {
 		p3 = (TextView) v.findViewById(R.id.Calificacion3Text);
 		fin = (TextView) v.findViewById(R.id.CalificacionFinalText);
 		finfin = (TextView) v.findViewById(R.id.CalificacionFinalFinalText);
+		extra = (TextView) v.findViewById(R.id.CalificacionFinalFinalText);
+		
+		l1 = (TextView) v.findViewById(R.id.parcial1Text);
+		l2 = (TextView) v.findViewById(R.id.parcial2Text);
+		l3 = (TextView) v.findViewById(R.id.parcial3Text);
+		lfin = (TextView) v.findViewById(R.id.finalText);
+		lfinfin = (TextView) v.findViewById(R.id.finalFinalText);
+		lextra = (TextView) v.findViewById(R.id.extraText);
+		
+		Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "BenchNine-Regular.ttf");
+		
+		p1.setTypeface(font);
+		p2.setTypeface(font);
+		p3.setTypeface(font);
+		fin.setTypeface(font);
+		finfin.setTypeface(font);
+		extra.setTypeface(font);
+		l1.setTypeface(font);
+		l2.setTypeface(font);
+		l3.setTypeface(font);
+		lfin.setTypeface(font);
+		lfinfin.setTypeface(font);
+		lextra.setTypeface(font);
 		
 		if(getArguments().getString("EX1P").equals(" ")){
 			p1.setText("0");

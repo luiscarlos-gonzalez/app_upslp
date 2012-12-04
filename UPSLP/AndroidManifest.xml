@@ -23,7 +23,8 @@
             android:label="@string/title_activity_upslp" />
         <activity
             android:name=".Login"
-            android:label="@string/title_activity_upslp" />
+            android:label="@string/title_activity_upslp" >
+            </activity>
         <activity
             android:name=".MainMenu"
             android:label="@string/title_activity_upslp" >

@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -102,8 +103,35 @@ public class FaltasActivity extends SherlockActivity {
 			TextView faltasParcial2 = (TextView)v.findViewById(R.id.faltas_2);
 			TextView faltasParcial3 = (TextView)v.findViewById(R.id.faltas_3);
 			
+			TextView p1 = (TextView) v.findViewById(R.id.parcial_1_label);
+			TextView p2 = (TextView) v.findViewById(R.id.parcial_2_label);
+			TextView p3 = (TextView) v.findViewById(R.id.parcial_3_label);
+
+			
+
+			Typeface font = Typeface.createFromAsset(getAssets(), "BenchNine-Regular.ttf");
+			
+			nombreMateria.setTypeface(font);
+			faltasParcial1.setTypeface(font);
+			faltasParcial2.setTypeface(font);
+			faltasParcial3.setTypeface(font);
+			p1.setTypeface(font);
+			p2.setTypeface(font);
+			p3.setTypeface(font);
+			
+			
 			try {
 				JSONObject jsonObject = json.getJSONObject(pos);
+				int total  = Integer.parseInt(jsonObject.getString("INAS1")) + Integer.parseInt(jsonObject.getString("INAS2")) + Integer.parseInt(jsonObject.getString("INAS3"));
+				
+				if(total <= 4){
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.verde));
+				}else if(total > 4){
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.amarillo));
+				}else{
+					v.setBackgroundDrawable(getResources().getDrawable(R.drawable.gris));
+				}
+				
 				nombreMateria.setText(jsonObject.getString("NOMMATERIA"));
 				faltasParcial1.setText(jsonObject.getString("INAS1"));
 				faltasParcial2.setText(jsonObject.getString("INAS2"));
